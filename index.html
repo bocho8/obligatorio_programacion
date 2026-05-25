@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión - Influencers y Ventas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- 
+        Autores: 
+        Fabrizio Pedemonti - N°: 372959 - Grupo: M1C
+        Agustin Roizen - N°: 350021 - Grupo: M1C
+    -->
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Gestión</h1>
+    <p>Autores: Pedemonti, Roizen</p>
+</header>
+
+<main>
+    <!-- Sección de Influencers -->
+    <section class="section">
+        <h2>Influencers</h2>
+
+        <article class="seccion">
+            <h3>Registrate</h3>
+            <form id="formInfluencer">
+                <label>Nombre: <input type="text" name="nombre" required></label>
+                <label>Email: <input type="email" name="email" required></label>
+                <label>% Comisión: <input type="number" step="0.2" name="comision" required></label>
+                <button type="submit">Agregar</button>
+            </form>
+        </article>
+
+        <article class="tabla-container">
+            <h3>Lista de participantes (Influencers)</h3>
+            <div class="ordenado">
+                <button class="btn-orden">Ordenar por Nombre ▲</button>
+                <button class="btn-orden">Ordenar por Nombre ▼</button>
+            </div>
+            <table class="tabla-influencers">
+                <thead>
+                    <tr><th>Nombre</th><th>Email</th><th>% Comisión</th><th>Total a cobrar ($)</th><th>Medallas</th><th>Detalle</th></tr>
+                </thead>
+                <tbody>
+                    <!-- Influencer con Top comisión y Venta más cara -->
+                    <tr>
+                        <td>Ana García</td>
+                        <td>ana@mail.com</td>
+                        <td>10%</td>
+                        <td>15000</td>
+                        <td>🔥 🟢</td>
+                        <td><button class="btn-detalle">Ver detalle</button></td>
+                    </tr>
+                    <!-- Influencer con Cero ventas -->
+                    <tr>
+                        <td>Beatriz López</td>
+                        <td>beatriz@mail.com</td>
+                        <td>5%</td>
+                        <td>3000</td>
+                        <td>🧊</td>
+                        <td><button class="btn-detalle">Ver detalle</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <!-- Sección de Artículos -->
+    <section class="seccion">
+        <h2>Artículos</h2>
+        <article class="formulario">
+            <h3>Registrar artículo</h3>
+            <form id="form-articulo">
+                <label>Código: <input type="text" name="codigo" required></label>
+                <label>Descripción: <input type="text" name="descripcion" required></label>
+                <label>Precio ($): <input type="number" step="2" name="precio" required></label>
+                <button type="submit">Agregar</button>
+            </form>
+        </article>
+        <article class="tabla-container">
+            <h3>Lista de artículos</h3>
+            <div class="ordenamiento">
+                <button class="btn-orden">▲ Ordenar por Código</button>
+                <button class="btn-orden">▼ Ordenar por Código</button>
+            </div>
+            <table class="tabla-articulos">
+                <thead>
+                    <tr><th>Código</th><th>Descripción</th><th>Precio ($)</th><th>Medalla</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MESA01</td>
+                        <td>Mesa moderna</td>
+                        <td>8000</td>
+                        <td>⭐ Más vendido</td>
+                    </tr>
+                    <tr>
+                        <td>SILLA02</td>
+                        <td>Silla comedor</td>
+                        <td>3000</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <!-- Sección de Ventas -->
+    <section class="section">
+        <h2>Ventas</h2>
+        <article class="formulario-venta">
+            <h3>Registrar Venta</h3>
+            <form id="formularioVenta">
+                <label>Artículo:
+                    <select name="codigoArticulo">
+                        <option value="MESA01">MESA01 - Mesa moderna</option>
+                        <option value="SILLA02">SILLA02 - Silla comedor</option>
+                    </select>
+                </label>
+                <label>Cantidad: <input type="number" name="cantidad" min="1" required></label>
+                <label>Medio:
+                    <select name="medio">
+                        <option value="1">1-Instagram</option>
+                        <option value="2">2-YouTube</option>
+                        <option value="3">3-X</option>
+                        <option value="4">4-TikTok</option>
+                        <option value="5">5-Facebook</option>
+                        <option value="6">6-Otras</option>
+                    </select>
+                </label>
+                <button type="submit">Registrar Venta</button>
+            </form>
+        </article>
+        <article class="tabla-ventas">
+            <h3>Ventas Registradas</h3>
+            <table class="tabla-ventas">
+                <thead>
+                    <tr><th>Nro Venta</th><th>Código Artículo</th><th>Influencer</th><th>Cantidad</th><th>Medio</th><th>Acción</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>MESA01</td>
+                        <td>Ana García</td>
+                        <td>2</td>
+                        <td>1-Instagram</td>
+                        <td><button class="btn-eliminar">X</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>SILLA02</td>
+                        <td>Beatriz López</td>
+                        <td>1</td>
+                        <td>3-X</td>
+                        <td><button class="btn-eliminar">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <div class="grafico-placeholder" style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px dashed #b9cadb; border-radius: 1rem; text-align: center; color: #6c86a3;">
+            (Gráfico de burbujas - se implementará en el segundo obligatorio)
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Autores: Fabrizio Pedemonti - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 372959</p>
+    <p>Agustín Roizen - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 350021</p>
+    <p>Grupo M1C</p>
+</footer>
+
+</body>
+</html>
