@@ -19,17 +19,24 @@
 </header>
 
 <main>
-    <!-- Sección de Influencers -->
     <section class="section">
         <h2>Influencers</h2>
 
-        <article class="seccion">
-            <h3>Registrate</h3>
-            <form id="formInfluencer">
+        <article class="alta">
+            <h3>Alta de Influencer</h3>
+            <button class="btn-agregar">Agregar influencer</button>
+        </article>
+
+        <article class="datos-a-agregar">
+            <h3>Datos del influencer a agregar</h3>
+            <form>
                 <label>Nombre: <input type="text" name="nombre" required></label>
                 <label>Email: <input type="email" name="email" required></label>
                 <label>% Comisión: <input type="number" step="0.2" name="comision" required></label>
-                <button type="submit">Agregar</button>
+                <div class="botones-form">
+                    <button type="button" class="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-agregar">Agregar</button>
+                </div>
             </form>
         </article>
 
@@ -44,7 +51,6 @@
                     <tr><th>Nombre</th><th>Email</th><th>% Comisión</th><th>Total a cobrar ($)</th><th>Medallas</th><th>Detalle</th></tr>
                 </thead>
                 <tbody>
-                    <!-- Influencer con Top comisión y Venta más cara -->
                     <tr>
                         <td>Ana García</td>
                         <td>ana@mail.com</td>
@@ -53,7 +59,6 @@
                         <td>🔥 🟢</td>
                         <td><button class="btn-detalle">Ver detalle</button></td>
                     </tr>
-                    <!-- Influencer con Cero ventas -->
                     <tr>
                         <td>Beatriz López</td>
                         <td>beatriz@mail.com</td>
@@ -64,21 +69,35 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info-medallas">
+                <span>🔥 Top comisión</span>
+                <span>🧊 Cero ventas</span>
+                <span>🟢 Venta más cara</span>
+            </div>
         </article>
     </section>
 
-    <!-- Sección de Artículos -->
     <section class="seccion">
         <h2>Artículos</h2>
-        <article class="formulario">
-            <h3>Registrar artículo</h3>
-            <form id="form-articulo">
+
+        <article class="alta">
+            <h3>Alta de Artículo</h3>
+            <button class="btn-agregar">Agregar artículo</button>
+        </article>
+
+        <article class="datos-a-agregar">
+            <h3>Datos del artículo a agregar</h3>
+            <form>
                 <label>Código: <input type="text" name="codigo" required></label>
                 <label>Descripción: <input type="text" name="descripcion" required></label>
                 <label>Precio ($): <input type="number" step="2" name="precio" required></label>
-                <button type="submit">Agregar</button>
+                <div class="botones-form">
+                    <button type="button" class="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-agregar">Agregar</button>
+                </div>
             </form>
         </article>
+
         <article class="tabla-container">
             <h3>Lista de artículos</h3>
             <div class="ordenamiento">
@@ -94,7 +113,7 @@
                         <td>MESA01</td>
                         <td>Mesa moderna</td>
                         <td>8000</td>
-                        <td>⭐ Más vendido</td>
+                        <td>⭐</td>
                     </tr>
                     <tr>
                         <td>SILLA02</td>
@@ -104,19 +123,34 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="info-medalla-articulo">
+                ⭐ Artículo más vendido (mayor cantidad de unidades vendidas)
+            </div>
         </article>
     </section>
 
-    <!-- Sección de Ventas -->
     <section class="section">
         <h2>Ventas</h2>
-        <article class="formulario-venta">
-            <h3>Registrar Venta</h3>
-            <form id="formularioVenta">
+
+        <article class="alta">
+            <h3>Alta de ventas</h3>
+            <button class="btn-agregar">Agregar venta</button>
+        </article>
+
+        <article class="datos-a-agregar">
+            <h3>Datos de la venta a agregar</h3>
+            <form>
+                <label>Nro: <input type="text" name="nro" value="3" readonly disabled></label>
                 <label>Artículo:
                     <select name="codigoArticulo">
                         <option value="MESA01">MESA01 - Mesa moderna</option>
                         <option value="SILLA02">SILLA02 - Silla comedor</option>
+                    </select>
+                </label>
+                <label>Influencer:
+                    <select name="influencer">
+                        <option value="Ana García">Ana García</option>
+                        <option value="Beatriz López">Beatriz López</option>
                     </select>
                 </label>
                 <label>Cantidad: <input type="number" name="cantidad" min="1" required></label>
@@ -130,9 +164,13 @@
                         <option value="6">6-Otras</option>
                     </select>
                 </label>
-                <button type="submit">Registrar Venta</button>
+                <div class="botones-form">
+                    <button type="button" class="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn-agregar">Agregar</button>
+                </div>
             </form>
         </article>
+
         <article class="tabla-ventas">
             <h3>Ventas Registradas</h3>
             <table class="tabla-ventas">
@@ -159,9 +197,10 @@
                 </tbody>
             </table>
         </article>
-        <div class="grafico-placeholder" style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px dashed #b9cadb; border-radius: 1rem; text-align: center; color: #6c86a3;">
-            (Gráfico de burbujas - se implementará en el segundo obligatorio)
-        </div>
+
+        <article class="grafico">
+            <h3>Gráfico de burbujas</h3>
+        </article>
     </section>
 </main>
 

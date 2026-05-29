@@ -1,215 +1,176 @@
+/*
+   Autores: Fabrizio Pedemonti - N°: 372959 - Grupo: M1C
+            Agustin Roizen - N°: 350021 - Grupo: M1C
+*/
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    background-color: #f0f2f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
-    padding: 2rem;
-    color: #1a2a3a;
+    background-color: #e0e0e0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
 }
 
 header {
+    background-color: white;
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 header h1 {
-    font-size: 2.2rem;
     color: #1e5f6e;
-    letter-spacing: 1px;
+    font-size: 28px;
 }
 
 header p {
-    font-size: 1rem;
-    color: #4a627a;
-    margin-top: 0.5rem;
+    color: #333;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
-.section {
+.section, .seccion {
     background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
 }
 
-.section h2 {
-    font-size: 1.8rem;
-    color: #1e5f6e;
-    border-left: 6px solid #2c9e8c;
-    padding-left: 1rem;
-    margin-bottom: 1.2rem;
+.section h2, .seccion h2 {
+    background-color: #2c9e8c;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 22px;
 }
 
 article {
-    background-color: #ffffff;
-    border-radius: 0.8rem;
-    margin-bottom: 1.5rem;
-    padding: 0.8rem 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
 }
 
 article h3 {
-    font-size: 1.3rem;
-    color: #2c3e4e;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    background-color: #e0e0e0;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    align-items: flex-end;
-    background-color: #fafcfd;
-    padding: 1rem 0.5rem;
-    border-radius: 0.6rem;
-}
-
-form label {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    font-size: 0.85rem;
-    color: #2c3e4e;
-    gap: 0.3rem;
-}
-
-form input, form select {
-    border: 1px solid #ccd7e4;
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    background-color: white;
-    transition: 0.2s ease;
-    min-width: 150px;
-}
-
-form input:focus, form select:focus {
-    outline: none;
-    border-color: #2c9e8c;
-    box-shadow: 0 0 0 2px rgba(44, 158, 140, 0.2);
-}
-
-form button {
+.btn-agregar, .btn-orden, .btn-detalle, .btn-eliminar, .btn-cancelar {
     background-color: #2c9e8c;
     color: white;
     border: none;
-    border-radius: 2rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
     cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 0.5rem;
 }
 
-form button:hover {
-    background-color: #1e7a6b;
-}
-
-.btn-orden, .btn-detalle, .btn-eliminar {
-    background-color: #2c9e8c;
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-orden:hover, .btn-detalle:hover, .btn-eliminar:hover {
-    background-color: #1e7a6b;
-    transform: scale(1.02);
+.btn-cancelar {
+    background-color: #888;
 }
 
 .btn-eliminar {
     background-color: #c95c4a;
 }
 
-.btn-eliminar:hover {
-    background-color: #aa3e2c;
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+form input, form select {
+    width: 200px;
+    padding: 4px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-top: 3px;
+}
+
+.botones-form {
+    margin-top: 10px;
+}
+
+.botones-form button {
+    margin-right: 8px;
 }
 
 .ordenado, .ordenamiento {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+}
+
+.ordenado button, .ordenamiento button {
+    margin-right: 5px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0.8rem;
-    font-size: 0.9rem;
-}
-
-th, td {
-    border: 1px solid #dee2e6;
-    padding: 0.75rem;
-    text-align: left;
-    vertical-align: middle;
-}
-
-th {
-    background-color: #eef2f7;
-    font-weight: 700;
-    color: #1e4663;
-}
-
-td {
+    margin-top: 10px;
     background-color: white;
 }
 
-tbody tr:hover {
-    background-color: #f8f9fc;
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    font-size: 12px;
 }
 
-.tabla-ventas td:last-child {
+th {
+    background-color: #e0e0e0;
+}
+
+.info-medallas, .info-medalla-articulo {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #444;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.info-medallas {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.grafico-placeholder {
+    background-color: #f0f0f0;
+    border: 1px dashed #888;
+    padding: 20px;
     text-align: center;
+    color: #555;
+    margin-top: 10px;
 }
 
 footer {
-    margin-top: 2.5rem;
-    padding: 1.5rem 0.5rem;
+    background-color: white;
     text-align: center;
-    border-top: 1px solid #cddfe7;
-    font-size: 0.85rem;
-    color: #5b6f82;
+    padding: 12px;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 12px;
 }
 
 footer a {
     color: #2c9e8c;
     text-decoration: none;
-    font-weight: 500;
 }
 
 footer a:hover {
     text-decoration: underline;
-    color: #1e7a6b;
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-    
-    form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .ordenado, .ordenamiento {
-        flex-wrap: wrap;
-    }
-    
-    th, td {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-    }
 }
