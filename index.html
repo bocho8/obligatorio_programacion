@@ -19,55 +19,27 @@
 </header>
 
 <main>
+
+    <!-- ========== INFLUENCERS ========== -->
     <section class="section">
         <h2>Influencers</h2>
 
         <article class="alta">
             <h3>Alta de Influencer</h3>
-            <button class="btn-agregar">Agregar influencer</button>
-        </article>
-
-        <article class="datos-a-agregar">
-            <h3>Datos del influencer a agregar</h3>
-            <form>
-                <label>Nombre: <input type="text" name="nombre" required></label>
-                <label>Email: <input type="email" name="email" required></label>
-                <label>% Comisión: <input type="number" step="0.2" name="comision" required></label>
-                <div class="botones-form">
-                    <button type="button" class="btn-cancelar">Cancelar</button>
-                    <button type="submit" class="btn-agregar">Agregar</button>
-                </div>
-            </form>
+            <button id="btnAgregarInfluencer" class="btn-agregar">Agregar influencer</button>
         </article>
 
         <article class="tabla-container">
             <h3>Lista de participantes (Influencers)</h3>
             <div class="ordenado">
-                <button class="btn-orden">Ordenar por Nombre ▲</button>
-                <button class="btn-orden">Ordenar por Nombre ▼</button>
+                <button id="btnOrdenInfAsc" class="btn-orden">Ordenar por Nombre ▲</button>
+                <button id="btnOrdenInfDesc" class="btn-orden">Ordenar por Nombre ▼</button>
             </div>
             <table class="tabla-influencers">
                 <thead>
                     <tr><th>Nombre</th><th>Email</th><th>% Comisión</th><th>Total a cobrar ($)</th><th>Medallas</th><th>Detalle</th></tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Ana García</td>
-                        <td>ana@mail.com</td>
-                        <td>10%</td>
-                        <td>15000</td>
-                        <td>🔥 🟢</td>
-                        <td><button class="btn-detalle">Ver detalle</button></td>
-                    </tr>
-                    <tr>
-                        <td>Beatriz López</td>
-                        <td>beatriz@mail.com</td>
-                        <td>5%</td>
-                        <td>3000</td>
-                        <td>🧊</td>
-                        <td><button class="btn-detalle">Ver detalle</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="tbodyInfluencers"></tbody>
             </table>
             <div class="info-medallas">
                 <span>🔥 Top comisión</span>
@@ -77,51 +49,26 @@
         </article>
     </section>
 
-    <section class="seccion">
+    <!-- ========== ARTÍCULOS ========== -->
+    <section class="section">
         <h2>Artículos</h2>
 
         <article class="alta">
             <h3>Alta de Artículo</h3>
-            <button class="btn-agregar">Agregar artículo</button>
-        </article>
-
-        <article class="datos-a-agregar">
-            <h3>Datos del artículo a agregar</h3>
-            <form>
-                <label>Código: <input type="text" name="codigo" required></label>
-                <label>Descripción: <input type="text" name="descripcion" required></label>
-                <label>Precio ($): <input type="number" step="2" name="precio" required></label>
-                <div class="botones-form">
-                    <button type="button" class="btn-cancelar">Cancelar</button>
-                    <button type="submit" class="btn-agregar">Agregar</button>
-                </div>
-            </form>
+            <button id="btnAgregarArticulo" class="btn-agregar">Agregar artículo</button>
         </article>
 
         <article class="tabla-container">
             <h3>Lista de artículos</h3>
-            <div class="ordenamiento">
-                <button class="btn-orden">▲ Ordenar por Código</button>
-                <button class="btn-orden">▼ Ordenar por Código</button>
+            <div class="ordenado">
+                <button id="btnOrdenArtAsc" class="btn-orden">▲ Ordenar por Código</button>
+                <button id="btnOrdenArtDesc" class="btn-orden">▼ Ordenar por Código</button>
             </div>
             <table class="tabla-articulos">
                 <thead>
                     <tr><th>Código</th><th>Descripción</th><th>Precio ($)</th><th>Medalla</th></tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>MESA01</td>
-                        <td>Mesa moderna</td>
-                        <td>8000</td>
-                        <td>⭐</td>
-                    </tr>
-                    <tr>
-                        <td>SILLA02</td>
-                        <td>Silla comedor</td>
-                        <td>3000</td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                <tbody id="tbodyArticulos"></tbody>
             </table>
             <div class="info-medalla-articulo">
                 ⭐ Artículo más vendido (mayor cantidad de unidades vendidas)
@@ -129,46 +76,13 @@
         </article>
     </section>
 
+    <!-- ========== VENTAS ========== -->
     <section class="section">
         <h2>Ventas</h2>
 
         <article class="alta">
             <h3>Alta de ventas</h3>
-            <button class="btn-agregar">Agregar venta</button>
-        </article>
-
-        <article class="datos-a-agregar">
-            <h3>Datos de la venta a agregar</h3>
-            <form>
-                <label>Nro: <input type="text" name="nro" value="3" readonly disabled></label>
-                <label>Artículo:
-                    <select name="codigoArticulo">
-                        <option value="MESA01">MESA01 - Mesa moderna</option>
-                        <option value="SILLA02">SILLA02 - Silla comedor</option>
-                    </select>
-                </label>
-                <label>Influencer:
-                    <select name="influencer">
-                        <option value="Ana García">Ana García</option>
-                        <option value="Beatriz López">Beatriz López</option>
-                    </select>
-                </label>
-                <label>Cantidad: <input type="number" name="cantidad" min="1" required></label>
-                <label>Medio:
-                    <select name="medio">
-                        <option value="1">1-Instagram</option>
-                        <option value="2">2-YouTube</option>
-                        <option value="3">3-X</option>
-                        <option value="4">4-TikTok</option>
-                        <option value="5">5-Facebook</option>
-                        <option value="6">6-Otras</option>
-                    </select>
-                </label>
-                <div class="botones-form">
-                    <button type="button" class="btn-cancelar">Cancelar</button>
-                    <button type="submit" class="btn-agregar">Agregar</button>
-                </div>
-            </form>
+            <button id="btnAgregarVenta" class="btn-agregar">Agregar venta</button>
         </article>
 
         <article class="tabla-ventas">
@@ -177,38 +91,98 @@
                 <thead>
                     <tr><th>Nro Venta</th><th>Código Artículo</th><th>Influencer</th><th>Cantidad</th><th>Medio</th><th>Acción</th></tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>MESA01</td>
-                        <td>Ana García</td>
-                        <td>2</td>
-                        <td>1-Instagram</td>
-                        <td><button class="btn-eliminar">X</button></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SILLA02</td>
-                        <td>Beatriz López</td>
-                        <td>1</td>
-                        <td>3-X</td>
-                        <td><button class="btn-eliminar">X</button></td>
-                    </tr>
-                </tbody>
+                <tbody id="tbodyVentas"></tbody>
             </table>
         </article>
 
         <article class="grafico">
             <h3>Gráfico de burbujas</h3>
+            <canvas id="bubbleCanvas" width="600" height="180"></canvas>
         </article>
     </section>
+
 </main>
 
 <footer>
-    <p>Autores: Fabrizio Pedemonti - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 372959</p>
+    <p>Fabrizio Pedemonti - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 372959</p>
     <p>Agustín Roizen - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 350021</p>
     <p>Grupo M1C</p>
 </footer>
+
+<!-- ========== DIALOGS / MODALES ========== -->
+
+<!-- Modal: Alta Influencer -->
+<dialog id="dialogInfluencers">
+    <h3>Datos del influencer a agregar</h3>
+    <form id="formAgregarInfluencer" method="dialog">
+        <label>Nombre: <input type="text" id="nombreInf"></label>
+        <label>Email: <input type="email" id="emailInf"></label>
+        <label>% Comisión: <input type="number" id="comisionInf" step="0.01" min="0"></label>
+        <div class="botones-form">
+            <button type="button" id="cancelarInf" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- Modal: Alta Artículo -->
+<dialog id="dialogArticulos">
+    <h3>Datos del artículo a agregar</h3>
+    <form id="formAgregarArticulo" method="dialog">
+        <label>Código: <input type="text" id="codigoArt"></label>
+        <label>Descripción: <input type="text" id="descArt"></label>
+        <label>Precio ($): <input type="number" id="precioArt" step="0.01" min="0.01"></label>
+        <div class="botones-form">
+            <button type="button" id="cancelarArt" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- Modal: Alta Venta -->
+<dialog id="dialogVentas">
+    <h3>Datos de la venta a agregar</h3>
+    <form id="formAgregarVenta" method="dialog">
+        <label>Artículo:
+            <select id="selArticuloVenta"></select>
+        </label>
+        <label>Influencer:
+            <select id="selInfluencerVenta"></select>
+        </label>
+        <label>Cantidad: <input type="number" id="cantidadVenta" min="1"></label>
+        <label>Medio:
+            <select id="selMedioVenta">
+                <option value="1">1-Instagram</option>
+                <option value="2">2-YouTube</option>
+                <option value="3">3-X</option>
+                <option value="4">4-TikTok</option>
+                <option value="5">5-Facebook</option>
+                <option value="6">6-Otras</option>
+            </select>
+        </label>
+        <div class="botones-form">
+            <button type="button" id="cancelarVent" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-agregar">Agregar</button>
+        </div>
+    </form>
+</dialog>
+
+<!-- Modal: Detalle de comisiones del influencer -->
+<dialog id="dialogDetalles">
+    <h3 id="tituloDetalle">Detalle de ventas</h3>
+    <table class="tabla-detalle">
+        <thead>
+            <tr><th>Nro</th><th>Cantidad</th><th>Artículo</th><th>Precio Unit.</th><th>Total</th><th>$ Comisión</th></tr>
+        </thead>
+        <tbody id="tbodyDetalle"></tbody>
+    </table>
+    <div class="botones-form">
+        <button type="button" id="cerrarDet" class="btn-cancelar">Cerrar</button>
+    </div>
+</dialog>
+
+<script src="js/clases.js"></script>
+<script src="js/funciones.js"></script>
 
 </body>
 </html>

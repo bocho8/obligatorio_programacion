@@ -174,3 +174,71 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* ── DIALOG / MODAL ── */
+dialog {
+    border: 2px solid #2c9e8c;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: white;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+dialog h3 {
+    background-color: #e0e0e0;
+    padding: 5px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+dialog form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+dialog form input,
+dialog form select {
+    width: 200px;
+    padding: 4px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-top: 3px;
+}
+
+/* ── GRÁFICO DE BURBUJAS ── */
+.grafico canvas {
+    display: block;
+    margin: 10px auto 0 auto;
+    max-width: 100%;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* ── TABLA DE DETALLE (DIALOG) ── */
+.tabla-detalle {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background-color: white;
+    font-size: 11px;
+}
+
+.tabla-detalle th,
+.tabla-detalle td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+}
+
+.tabla-detalle th {
+    background-color: #e0e0e0;
+}
