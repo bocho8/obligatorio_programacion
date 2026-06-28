@@ -20,7 +20,11 @@
 
 <main>
 
-    <!-- ========== INFLUENCERS ========== -->
+    <!-- SECCIÓN 1: INFLUENCERS
+         - Alta con modal (dialog)
+         - Tabla con nombre, email, comisión, total, medallas, detalle
+         - Orden por nombre asc/desc
+         - Medallas: 🔥 top comisión, 🧊 cero ventas, 🟢 venta + cara -->
     <section class="section">
         <h2>Influencers</h2>
 
@@ -49,7 +53,11 @@
         </article>
     </section>
 
-    <!-- ========== ARTÍCULOS ========== -->
+    <!-- SECCIÓN 2: ARTÍCULOS
+         - Alta con modal
+         - Tabla con código, descripción, precio
+         - Orden por código asc/desc
+         - Medalla: ⭐ artículo más vendido -->
     <section class="section">
         <h2>Artículos</h2>
 
@@ -76,7 +84,10 @@
         </article>
     </section>
 
-    <!-- ========== VENTAS ========== -->
+    <!-- SECCIÓN 3: VENTAS
+         - Alta con modal (selects poblados dinámicamente)
+         - Tabla ordenada por número, con botón de eliminar
+         - Gráfico de burbujas en canvas (6 burbujas, 6 medios) -->
     <section class="section">
         <h2>Ventas</h2>
 
@@ -97,6 +108,7 @@
 
         <article class="grafico">
             <h3>Gráfico de burbujas</h3>
+            <!-- Canvas de 600x180 — las burbujas se dibujan en una sola fila -->
             <canvas id="bubbleCanvas" width="600" height="180"></canvas>
         </article>
     </section>
@@ -104,33 +116,39 @@
 </main>
 
 <footer>
+    <!-- Footer con datos de los autores, links a ORT en pestaña nueva -->
     <p>Fabrizio Pedemonti - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 372959</p>
     <p>Agustín Roizen - <a href="https://www.ort.edu.uy" target="_blank">Sitio web ORT</a> | N° 350021</p>
     <p>Grupo M1C</p>
 </footer>
 
-<!-- ========== DIALOGS / MODALES ========== -->
+<!-- MODALES (<dialog>) — los 4 están ocultos al cargar la página
+     Se abren con .showModal() que pone el ::backdrop gris.
+     El atributo method="dialog" en los forms evita recarga. -->
 
-<!-- Modal: Alta Influencer -->
+<!-- Modal 1: Alta Influencer -->
 <dialog id="dialogInfluencers">
     <h3>Datos del influencer a agregar</h3>
     <form id="formAgregarInfluencer" method="dialog">
         <label>Nombre: <input type="text" id="nombreInf"></label>
         <label>Email: <input type="email" id="emailInf"></label>
+        <!-- step="0.01" deja decimales, min="0" porque la comisión puede ser 0 -->
         <label>% Comisión: <input type="number" id="comisionInf" step="0.01" min="0"></label>
         <div class="botones-form">
+            <!-- type="button" para que no haga submit -->
             <button type="button" id="cancelarInf" class="btn-cancelar">Cancelar</button>
             <button type="submit" class="btn-agregar">Agregar</button>
         </div>
     </form>
 </dialog>
 
-<!-- Modal: Alta Artículo -->
+<!-- Modal 2: Alta Artículo -->
 <dialog id="dialogArticulos">
     <h3>Datos del artículo a agregar</h3>
     <form id="formAgregarArticulo" method="dialog">
         <label>Código: <input type="text" id="codigoArt"></label>
         <label>Descripción: <input type="text" id="descArt"></label>
+        <!-- min="0.01" porque el precio tiene que ser mayor a 0 -->
         <label>Precio ($): <input type="number" id="precioArt" step="0.01" min="0.01"></label>
         <div class="botones-form">
             <button type="button" id="cancelarArt" class="btn-cancelar">Cancelar</button>
@@ -139,17 +157,20 @@
     </form>
 </dialog>
 
-<!-- Modal: Alta Venta -->
+<!-- Modal 3: Alta Venta -->
 <dialog id="dialogVentas">
     <h3>Datos de la venta a agregar</h3>
     <form id="formAgregarVenta" method="dialog">
+        <!-- Selects vacíos al inicio — se pueblan con JS justo antes de abrir -->
         <label>Artículo:
             <select id="selArticuloVenta"></select>
         </label>
         <label>Influencer:
             <select id="selInfluencerVenta"></select>
         </label>
+        <!-- min="1": al menos una unidad -->
         <label>Cantidad: <input type="number" id="cantidadVenta" min="1"></label>
+        <!-- Medio hardcodeado en HTML (los valores 1-6 matchean con MEDIOS en JS) -->
         <label>Medio:
             <select id="selMedioVenta">
                 <option value="1">1-Instagram</option>
@@ -167,9 +188,11 @@
     </form>
 </dialog>
 
-<!-- Modal: Detalle de comisiones del influencer -->
+<!-- Modal 4: Detalle de ventas de un influencer -->
 <dialog id="dialogDetalles">
+    <!-- El título se reemplaza dinámicamente con el nombre del influencer -->
     <h3 id="tituloDetalle">Detalle de ventas</h3>
+    <!-- 6 columnas: Nro, Cantidad, Artículo, Precio Unit., Total, $ Comisión -->
     <table class="tabla-detalle">
         <thead>
             <tr><th>Nro</th><th>Cantidad</th><th>Artículo</th><th>Precio Unit.</th><th>Total</th><th>$ Comisión</th></tr>
@@ -181,6 +204,7 @@
     </div>
 </dialog>
 
+<!-- JS: primero clases (modelo), después funciones (UI) — el orden importa -->
 <script src="js/clases.js"></script>
 <script src="js/funciones.js"></script>
 
